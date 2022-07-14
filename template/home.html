@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center mt-5">Welcome to iCoder-Blog</h1>
+
+<div class="container p-3">
+    <div class="row">
+        <!-- For Search Blogs -->
+        <div class="col-md-5 ">
+            <form method="POST" class="d-flex ">
+                {% csrf_token %}
+                <input type="text" placeholder="Search" name="search" class=" form-control" style="border-radius: 5px;">
+                <button type="submit" class=" m-2 btn btn-outline-success">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+
+            {% for i in allBlogs %}
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title "><a href="/detailBlog/{{i.id}}">{{i.blog_title}}</a></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{i.auther_name}}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">{{i.publish_Date}}</h6>
+                    <p class="card-text ">{{i.blog_content | slice:"0:99" }}.......</p>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% if condition is True %}
+            <div class="text-center">
+                <label class="fs-5 mt-5 text-bg-danger p-3 " style="border-radius: 5px;">{{status}}</label>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

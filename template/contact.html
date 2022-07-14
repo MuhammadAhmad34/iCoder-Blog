@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">        
+        <!-- Contact Form -->
+        <div class=" col ">
+            <p class="fs-1 text-center mt-2 p-3">Contact US</p>
+            <form method="POST" class="p-2">
+                {% csrf_token %}
+                <input type="text" name="FullName" class="form-control m-2" placeholder="Full Name">
+                <input type="text" name="PhoneNumber" class="form-control m-2" placeholder="Phone Number">
+                <input type="Email" name="email" placeholder="Email" class="form-control m-2">
+                <textarea name="message" id="" cols="30" rows="10" placeholder="Type your Message Here" class=" m-2 form-control"></textarea>
+                <button type="submit" class="m-2 btn btn-outline-primary">Submit</button>
+            </form>
+            {% if condition is True %}
+            <div class="text-center p-3">
+                <label class="fs-5 text-bg-success p-3 " style="border-radius: 5px;">{{status}}</label>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

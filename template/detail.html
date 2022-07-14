@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5 p-5">
+        <div class="col">
+            <h3 class="fs-1">
+                {{BlogInfo.blog_title}}
+            </h3>
+            <p class="card-subtitle mb-2 text-muted">
+                {{BlogInfo.auther_name}}
+            </p>
+            <p class="card-subtitle mb-2 text-muted">
+                {{BlogInfo.publish_Date}}
+            </p>
+            <p class="fs-4 mt-3 p-3">
+                {{BlogInfo.blog_content}}
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
